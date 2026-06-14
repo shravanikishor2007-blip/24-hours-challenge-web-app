@@ -185,6 +185,93 @@ st.subheader("📈 Your Progress")
 st.progress(progress)
 
 st.metric("Completion", f"{int(progress * 100)}%")
+# ---------------- CREATIVE TASK CATEGORIES ----------------
+
+creative_categories = {
+    "Art & Design": [
+        "Drawing",
+        "Painting",
+        "Sketching",
+        "Doodle Art",
+        "Poster Making",
+        "Logo Design",
+        "Other"
+    ],
+
+    "Writing": [
+        "Essay Writing",
+        "Poem Writing",
+        "Story Writing",
+        "Journal Writing",
+        "Write a Motivational Quote",
+        "Letter to Future Self",
+        "Other"
+    ],
+
+    "Learning & Knowledge": [
+        "Read a Book for 20 Minutes",
+        "Learn 10 New English Words",
+        "Watch an Educational Video",
+        "Solve a Puzzle",
+        "Learn a Science Fact",
+        "Learn a New Skill",
+        "Other"
+    ],
+
+    "Public Speaking": [
+        "Speak on a Topic for 2 Minutes",
+        "Practice a Presentation",
+        "Record a Speech",
+        "Read Aloud",
+        "Improve Pronunciation",
+        "Other"
+    ],
+
+    "Creativity & Innovation": [
+        "Think of a New App Idea",
+        "Design a Smart Product",
+        "Create a Business Idea",
+        "Solve a Daily-Life Problem",
+        "Brainstorm New Inventions",
+        "Other"
+    ],
+
+    "Technology": [
+        "Practice Python Coding",
+        "Learn a New Programming Concept",
+        "Create a Simple Project",
+        "Explore an AI Tool",
+        "Learn Keyboard Shortcuts",
+        "Other"
+    ]
+}
+
+# ---------------- DROPDOWN MENUS ----------------
+
+selected_category = st.selectbox(
+    "🎨 Select Creative Category",
+    list(creative_categories.keys())
+)
+
+selected_task = st.selectbox(
+    "✨ Select Creative Task",
+    creative_categories[selected_category]
+)
+
+# If user selects Other, allow custom input
+if selected_task == "Other":
+    custom_task = st.text_input(
+        "✍️ Enter Your Creative Task"
+    )
+
+    if custom_task:
+        st.success(
+            f"Selected Category: {selected_category}\n\nCustom Task: {custom_task}"
+        )
+else:
+    st.success(
+        f"Selected Category: {selected_category}\n\nSelected Task: {selected_task}"
+    )
 
 # ---------------- JOURNAL ----------------
 st.subheader("📔 Journal")
