@@ -291,6 +291,24 @@ if st.button("💾 Save Journal"):
 
         conn.commit()
         st.success("✅ Journal Saved Successfully!")
+# ---------------- SHOW SAVED JOURNALS ----------------
+st.subheader("📋 My Journal History")
+
+cursor.execute("""
+SELECT id, entry
+FROM journal
+WHERE user_name = ?
+ORDER BY id DESC
+""", (name,))
+
+journals = cursor.fetchall()
+
+if not journals:
+    st.info("No journal entries yet")
+
+else:
+    for j in journals:
+        st.write(f"📝 {j[1]}")
 
 # ---------------- FOOTER ----------------
 st.write("---")
