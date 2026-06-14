@@ -5,7 +5,7 @@ import sqlite3
 
 # ---------------- PAGE CONFIG ----------------
 st.set_page_config(
-    page_title="24 Hours Wellness Challenge",
+    page_title="24 Hours Challenge",
     layout="wide"
 )
 
@@ -55,7 +55,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ---------------- HEADER ----------------
-st.markdown("<div class='big-title'>🌟 24 Hours Wellness Challenge</div>", unsafe_allow_html=True)
+st.markdown("<div class='big-title'>24 Hours Challenge</div>", unsafe_allow_html=True)
 
 quotes = [
     "Small progress is still progress 💪",
